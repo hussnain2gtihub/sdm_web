@@ -1,0 +1,188 @@
+<?php
+  session_start();
+
+  include("logindb.php");
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background:linear-gradient( 45deg,#10add490 ,#35dae03a)
+}
+
+.login-container {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    background: linear-gradient(75deg,#10add4d5 ,#35dae03a);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 5px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+
+}
+
+button:hover {
+    background-color: #14b0e0fe;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
+}
+header {
+    
+    background: #007BFF;
+    color: #fff;
+    padding: 13px 0;
+    text-align: center;
+}
+h1 {
+    font-size: 36px;
+}
+.container {
+    max-width: 1500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(75deg,#10add46c ,#35dae022);
+    
+}
+.img{
+    top:15px;
+    position: absolute;
+    left:85px;  
+    border-radius:10%;  
+    box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.3);
+
+}
+h2{
+    font-size: 30px;
+}
+
+p{
+    font-size: 20px;
+}
+#user{
+    width: 95%;
+}
+#password{
+    width: 95%;
+
+}
+    </style>
+    
+</head>
+<body>
+        <header>
+            <image src="download.png" height="150" width="153" class="img"> </image>
+            <h1 style="margin-left: 175px;">Shri Dharmasthala Manjunatheshwara College of Engineering and Technology Dharwad</h1>
+            <P style="font-size: 25px;">Department Of Computer Science Engineering</P>
+            <br> 
+        </header>
+        <div class="container">
+            <h2>About Us</h2>
+            <p class="para">This web application is designed to facilitate communication and collaboration between mentors and their students. Whether you are a mentor looking to provide guidance or a student seeking support, this platform is here to help you connect and achieve your goals.</p>
+    
+            <h2>Get Started</h2>
+            <p>Login into to Dashboard either as  a mentor or a student</p>
+        </div>
+        <br>
+        <br>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form >
+            <label for="User">Username:</label>
+            <input type="text" id="user" name="user" required >
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="user-type">Select User Type:</label>
+            <select id="user-type" name="user-type" required>
+                <option value="1">Mentor</option>
+                <option value="2">Student</option>
+            </select>
+           
+            <button type="submit" id="loginbtn" onclick="logto()">Login</button>
+            <span id="resu" style="margin-left: 15px;font-size: 16px;"></span> 
+        </form>
+        <br>
+       
+       
+    </div>
+    <p>.</p>
+</body>
+<script>
+
+       
+function logto() {
+    var username = document.getElementById("user").value;
+    var password = document.getElementById("password").value;
+    var select = document.getElementById("user-type");
+    var selectedValue = select.value;
+
+    
+    if (selectedValue === '1') { 
+        if (username === 'admin' && password === 'admin') {
+            window.location.href = 'mentor-login.html';
+            event.preventDefault();
+        } else {
+            document.getElementById("resu").innerText = "Invalid username or password for Mentor.";
+            event.preventDefault();
+        }
+    } else if (selectedValue === '2') { 
+        if (username === 'sdmcet' && password === 'a') { 
+            window.location.href = 'student-login.html';
+            event.preventDefault();
+        } else {
+            document.getElementById("resu").innerText = "Invalid username or password for Student.";
+            event.preventDefault();
+        }
+    }
+}
+
+</script>
+</html>

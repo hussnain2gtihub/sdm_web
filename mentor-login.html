@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background: linear-gradient(75deg,#10add46c ,#35dae022);
+
+        }
+
+        header {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(75deg,#10add46c ,#35dae022);
+        }
+
+        .mentor-info {
+            text-align: center;
+        }
+
+        .mentor-actions {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            font-size: 20px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .btn:hover {
+            background-color: #14b0e0fe;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
+            background: linear-gradient(to bottom right, #33ccff 40%, #ba91e4 100%);
+        }
+
+        .img{
+            top:15px;
+            position: absolute;
+            left:85px;  
+            border-radius:10%;  
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+        }
+        .rtable{
+            position: absolute;
+            top:auto;
+            left:300px;
+            font-size:23px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+        }
+        .responsedisplay{
+            display: none;
+        }
+        .reply{
+            
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            background-color: #f0f0f0;
+            background: linear-gradient(to bottom right, #33ccff58 0%, #ba91e449 100%);
+            font-size: 25PX;
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.105);
+            margin-top: 20px;
+            margin-left:100px;
+            margin-right: 100px;
+            max-height: 1000px;
+        }  
+        .reply:hover{
+            background-color: #14b0e0fe;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
+            background: linear-gradient(to bottom right, #33ccff35 40%, #ba91e435 100%);
+        }
+       /* .commenthead{
+            position:absolute;
+            top:5px;
+            left:20px;
+            font-size: 20px;
+            
+        }*/
+        
+        .comment{
+            display: none;
+            max-height: 1000px;
+            overflow-y: auto;
+            margin-bottom: 25px;
+        }
+        .replybtn{
+            padding: 10px 20px;
+            background-color: #007BFF;
+            font-size: 20px;
+            color: #fff;
+            border-radius: 15px;
+            position:relative;
+            left: 1500px;
+            bottom: 10px;
+            cursor: pointer;
+            width: 200px;
+            transition: background-color 0.5s ease, box-shadow 0.5s ease;
+
+        }
+        .replybtn:hover {
+            background-color: #14b0e0fe;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
+            background: linear-gradient(to bottom right, #33ccff 40%, #ba91e47e 100%);
+        }
+        .mentor-input{
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <image src="download.png" height="150" width="153" class="img"> </image>
+        <h1>Welcome, Mentor Name</h1>
+        <p>Your Dashboard for Mentorship</p>
+        <br>
+    </header>
+
+    <div class="container">
+        <div class="mentor-info">
+            <h2>Your Mentor Information</h2>
+            <p>Name: Mentor Name</p>
+            <p>Email: mentor@email.com</p>
+            <p>Status:Your Account is Active</p>
+        </div>
+
+        <div class="mentor-actions">
+            <h2>Actions</h2>
+            <a id="checkbtn" class="btn">Visit Queries</a>
+            <a id="giverespond" class="btn">Give a Response</a>
+            <a href="login.html" class="btn" onclick="alert('This session has loged out,Login again to gain access ')" >Logout</a>
+        </div>
+    </div>
+
+</div>
+
+<div id="response" class="responsedisplay" >
+    <table border="1" class="rtable">
+        <tr style="color:white;  
+             background: linear-gradient(to left, #33ccff 0%, #ba91e4be 100%);"> 
+
+            <td width="500px" height="70px">Student USN </td> 
+            <td width="900px">Query from Student </td> 
+
+        </tr> 
+        <tr> 
+            <td> 
+                No USN Found 
+            </td> 
+            <td> 
+                You have not received any Query from your Students !! 
+            </td>  
+        </tr>
+    </table>
+</div>
+<div id="comments" class="comment"> 
+    
+</div>
+</body>
+<script>
+
+
+    
+     checkbtn.addEventListener("click", function() {
+           comments.style.display="none"
+        if (response.style.display === "none") {
+            response.style.display = "block"; 
+        } 
+         else 
+         response.style.display="none"
+    });
+
+     giverespond.addEventListener("click", function() {
+        response.style.display="none"
+        if (comments.style.display === "none") {
+            comments.style.display = "block"; 
+            var queries = [
+            { username: "username", query: "query will be displayed here if any student has sent it" },
+            { username: "username1", query: "query will be displayed here if any student has sent itquery will be displayed here if any student has sent itquery will be displayed here if any student has sent it query will be displayed here if any student has sent it" },
+            { username: "username2", query: "query will be displayed here if any student has sent it query will be displayed here if any student has sent it" },
+            { username: "username3", query: "query will be displayed here if any student has sent it " },
+            { username: "username4", query: "query will be displayed here if any student has sent it " },
+            { username: "username5", query: "query will be displayed here if any student has sent it query will be displayed here if any student has sent itquery will be displayed here if any student has sent itquery will be displayed here if any student has sent itquery will be displayed here if any student has sent itquery will be displayed here if any student has sent itquery will be displayed here if any student has sent it" },
+            { username: "username6", query: "query will be displayed here if any student has sent it " },
+            { username: "username7", query: "query will be displayed here if any student has sent it query will be displayed here if any student has sent itquery will be displayed here if any student has sent itquery will be displayed here if any student has sent itquery will be displayed here if any student has sent itquery will be displayed here if any student has sent itquery will be displayed here if any student has sent itquery will be displayed here if any student has sent itquery will be displayed here if any student has sent itquery will be displayed here if any student has sent it" },
+        ];
+
+        var commentsDiv = document.getElementById("comments");
+
+        function renderQueries() {
+            commentsDiv.innerHTML = ""; 
+            queries.forEach(function(queryObj) {
+                var replyDiv = document.createElement("div");
+                replyDiv.className = "reply";
+
+                var usernameHeading = document.createElement("h1");
+                usernameHeading.className = "commenthead";
+                usernameHeading.textContent = queryObj.username;
+
+                var queryParagraph = document.createElement("p");
+                queryParagraph.textContent = queryObj.query;
+
+                var input = document.createElement("input");
+                input.type = "text";
+                input.name = "mentor_reply";
+                input.className = "mentor-input";
+
+                var button = document.createElement("button");
+                button.type = "button";
+                button.className = "replybtn";
+                button.textContent = "reply";
+                button.onclick= function give_reply(){
+                    var input= prompt("enter your message here");
+                    if(input==""){
+                    alert("message can not be empty")
+                     }
+                   else{
+      
+                  alert("Your request has been concluded");  
+      
+                   }
+                }
+
+                replyDiv.appendChild(usernameHeading);
+                replyDiv.appendChild(queryParagraph);
+                replyDiv.appendChild(input);
+                replyDiv.appendChild(button);
+
+                commentsDiv.appendChild(replyDiv);
+            });
+        }
+        renderQueries();
+        } 
+         else 
+         comments.style.display="none"
+    });
+    
+
+
+    
+</script>
+</html>
+
+
+
+

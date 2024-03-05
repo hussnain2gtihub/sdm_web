@@ -1,0 +1,9 @@
+<!DOCTYPE interactionSystem [ <!ELEMENT interactionSystem (student, mentor)>
+<!ELEMENT student (name, studentID, major)>
+<!ELEMENT mentor (name, email, specialization)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT studentID (#PCDATA)>
+<!ELEMENT major (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT specialization (#PCDATA)>
+]>

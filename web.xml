@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interactionSystem>
+    <student>
+        <name>Student Name</name>
+        <studentID>2SD__CS___</studentID>
+        <major>Computer Science</major>
+    </student>
+    <mentor>
+        <name>Mentor Name</name>
+        <email>mentor@email.com</email>
+        <specialization>Web Development</specialization>
+    </mentor>
+</interactionSystem>
